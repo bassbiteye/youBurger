@@ -2081,7 +2081,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nimg.responsive-img,\nvideo.responsive-video {\n  max-width: 50%;\n  height: auto;\n  align-items: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nimg.responsive-img,\nvideo.responsive-video {\n  max-width: 50%;\n  height: auto;\n  align-items: center;\n}\n.custom-form-row{\n  margin-top: 5%;\n  max-width: 50%;\n}\n@media (max-width: 600px) {\n.custom-form-row{\n  max-width: 100%;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46023,67 +46023,74 @@ var render = function() {
       ? _c("img", { attrs: { src: "images/loading.gif", alt: "" } })
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "row", attrs: { id: "login-page" } }, [
-      _c("div", { staticClass: "col s4 z-depth-4 card-panel" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _c("div", { staticClass: "row margin" }, [
-          _c("div", { staticClass: "input-field col s12" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.item_price,
-                  expression: "item_price"
-                }
-              ],
-              attrs: {
-                required: "",
-                id: "item_price",
-                type: "number",
-                autofocus: "",
-                min: "100"
-              },
-              domProps: { value: _vm.item_price },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+    _c(
+      "div",
+      {
+        staticClass: "row custom-form-row center",
+        attrs: { id: "login-page" }
+      },
+      [
+        _c("div", { staticClass: "col  z-depth-4 card-panel " }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "row margin" }, [
+            _c("div", { staticClass: "input-field col s12" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item_price,
+                    expression: "item_price"
                   }
-                  _vm.item_price = $event.target.value
+                ],
+                attrs: {
+                  required: "",
+                  id: "item_price",
+                  type: "number",
+                  autofocus: "",
+                  min: "100"
+                },
+                domProps: { value: _vm.item_price },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.item_price = $event.target.value
+                  }
                 }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "center-align", attrs: { for: "item_price" } },
-              [_vm._v("Montant à payer")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "input-field col s12" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "btn waves-effect waves-light col s12 submitButton",
-                attrs: { type: "submit" },
-                on: { click: _vm.send }
-              },
-              [_vm._v("\n            Valider\n          ")]
-            )
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                { staticClass: "center-align", attrs: { for: "item_price" } },
+                [_vm._v("Montant à payer")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "input-field col s12" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "btn waves-effect waves-light col s12 submitButton",
+                  attrs: { type: "submit" },
+                  on: { click: _vm.send }
+                },
+                [_vm._v("\n            Valider\n          ")]
+              )
+            ])
           ])
         ])
-      ])
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
