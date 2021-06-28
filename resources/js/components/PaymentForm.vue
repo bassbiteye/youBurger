@@ -7,8 +7,8 @@
       style=""
     />
 
-    <div id="login-page" class="row">
-      <div class="col s4 z-depth-4 card-panel">
+    <div id="login-page" class="row custom-form-row center">
+      <div class="col  z-depth-4 card-panel ">
         <div class="row">
           <div class="input-field col s4 center-align">
             <img src="images/logo.jpeg" alt="" class="responsive-img valign" />
@@ -104,5 +104,13 @@ video.responsive-video {
   max-width: 50%;
   height: auto;
   align-items: center;
+}
+.custom-form-row{
+  max-width: 50%;
+}
+@media (max-width: 600px) {
+  .custom-form-row{
+  max-width: 100%;
+}
 }
 </style>
