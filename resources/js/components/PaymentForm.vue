@@ -106,6 +106,7 @@ video.responsive-video {
   align-items: center;
 }
 .custom-form-row{
+  margin-top: 5%;
   max-width: 50%;
 }
 @media (max-width: 600px) {

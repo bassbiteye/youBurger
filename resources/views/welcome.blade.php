@@ -25,6 +25,7 @@
             background-color: #ffffff;
             background-image: url('images/logo.jpeg');
             background-repeat: "repeat";
+            background-size: 6% 13%;
         }
 
     </style>
