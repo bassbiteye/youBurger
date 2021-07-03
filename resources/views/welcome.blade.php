@@ -27,7 +27,15 @@
             background-repeat: "repeat";
             background-size: 150px 150px;
         }
-
+        .carousel.carousel-slider {
+  top: 0;
+  left: 0;
+  height: 200px;
+}
+.carousel .indicators .indicator-item
+{
+    display:none;
+}
     </style>
 </head>
 
