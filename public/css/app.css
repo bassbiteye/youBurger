@@ -7623,6 +7623,7 @@ input[type=range]::-ms-thumb {
 .carousel.carousel-slider {
   top: 0;
   left: 0;
+  height: 200px;
 }
 .carousel.carousel-slider .carousel-fixed-item {
   position: absolute;
@@ -7664,6 +7665,7 @@ input[type=range]::-ms-thumb {
 .carousel .indicators {
   position: absolute;
   text-align: center;
+  display: none;
   left: 0;
   right: 0;
   bottom: 0;
