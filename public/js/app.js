@@ -1951,21 +1951,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       isLoad: true,
-      item_price: ""
+      item_price: "",
+      message: ''
     };
   },
-  mounted: function mounted() {// setTimeout(function () {
-    //   this.isLoad = false;
-    //   console.log(this.isLoad)
-    // }, 1000);
+  computed: {
+    isDisabled: function isDisabled() {
+      if (this.wrongNumber()) {
+        this.message = "le montant doit etre numérique";
+        return 0;
+      }
+
+      return !this.item_price;
+    }
   },
   methods: {
+    wrongNumber: function wrongNumber() {
+      return this.isNumeric(this.item_price) === false;
+    },
+    isNumeric: function isNumeric(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    },
     send: function send() {
+      if (this.wrongNumber()) {
+        this.message = "le montant doit etre numérique";
+        console.log(this.message);
+        return 1;
+      }
+
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("/send", {
         item_price: this.item_price
       }).then(function (jsonResponse) {
@@ -46052,7 +46071,6 @@ var render = function() {
                   required: "",
                   id: "item_price",
                   type: "number",
-                  autofocus: "",
                   min: "100"
                 },
                 domProps: { value: _vm.item_price },
@@ -46081,10 +46099,10 @@ var render = function() {
                 {
                   staticClass:
                     "btn waves-effect waves-light col s12 submitButton",
-                  attrs: { type: "submit" },
+                  attrs: { type: "submit", disabled: _vm.isDisabled },
                   on: { click: _vm.send }
                 },
-                [_vm._v("\n            Valider\n          ")]
+                [_vm._v("\n              Valider\n            ")]
               )
             ])
           ])
@@ -46146,7 +46164,7 @@ var staticRenderFns = [
         _c("p", { staticClass: "center login-form-text" }, [
           _c("br"),
           _vm._v(
-            "\n            Bienvenue, veuillez saisir le montant à payer\n          "
+            "\n              Bienvenue, veuillez saisir le montant à payer\n            "
           )
         ])
       ])

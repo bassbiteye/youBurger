@@ -44,11 +44,11 @@
               id="item_price"
               type="number"
               v-model="item_price"
-              autofocus=""
               min="100"
             />
             <label for="item_price" class="center-align">Montant à payer</label>
           </div>
+<!-- <div class="center-align red-text" v-if="isDisabled">{{ message }}</div>-->
         </div>
 
         <div class="row">
@@ -56,6 +56,7 @@
             <button
               type="submit"
               @click="send"
+              :disabled="isDisabled"
               class="btn waves-effect waves-light col s12 submitButton"
             >
               Valider
@@ -75,28 +76,47 @@ export default {
     return {
       isLoad: true,
       item_price: "",
+        message: ''
     };
   },
-  mounted() {
-    // setTimeout(function () {
-    //   this.isLoad = false;
-    //   console.log(this.isLoad)
-    // }, 1000);
-  },
-  methods: {
-    send() {
-      axios
-        .post("/send", { item_price: this.item_price })
-        .then(function (jsonResponse) {
-          if (jsonResponse.data.success == 1) {
-            window.open(jsonResponse.data.redirectUrl, "_blank");
+
+computed: {
+    isDisabled: function(){
+        if (this.wrongNumber()) {
+            this.message = "le montant doit etre numérique"
+            return 0;
+        }
+
+        return !this.item_price ;
+    }
+},
+
+    methods: {
+        wrongNumber () {
+            return this.isNumeric(this.item_price) === false
+        },
+        isNumeric (n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        },
+        send() {
+            if (this.wrongNumber()) {
+                this.message = "le montant doit etre numérique"
+                console.log(this.message)
+                return 1;
+            }
+
+            axios
+                .post("/send", {item_price: this.item_price})
+                .then(function (jsonResponse) {
+                    if (jsonResponse.data.success == 1) {
+                        window.open(jsonResponse.data.redirectUrl, "_blank");
                         this.item_price = "";
 
-          }
-        });
+                    }
+                });
+        },
     },
-  },
-};
+}
 </script>
 <style >
 img.responsive-img,
